@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShieldGuardTech | Enterprise Security Alerts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0f1e;  /* Dark navy background - NOT white */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: #131a2c;  /* Dark blue-gray card background */
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            border: 1px solid #2a3a5c;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0b1120 0%, #1a2a45 100%);
+            color: white;
+            padding: 45px 40px;
+            text-align: center;
+            border-bottom: 1px solid #2a3a5c;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, #a0b8e0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .tagline {
+            font-size: 1rem;
+            color: #8aa3cc;
+            margin-top: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .content {
+            padding: 45px 40px;
+        }
+
+        .about-section {
+            margin-bottom: 35px;
+        }
+
+        .about-section h2 {
+            color: #c0d4ff;
+            margin-bottom: 18px;
+            border-left: 4px solid #3b6eff;
+            padding-left: 18px;
+            font-weight: 600;
+        }
+
+        .about-section p {
+            color: #b8c7e7;
+            line-height: 1.7;
+            margin-bottom: 18px;
+            font-size: 1rem;
+        }
+
+        .features {
+            display: flex;
+            gap: 24px;
+            margin: 35px 0;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            flex: 1;
+            background: #0f1728;
+            padding: 22px 18px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid #253654;
+            transition: transform 0.2s;
+        }
+
+        .feature:hover {
+            transform: translateY(-3px);
+            border-color: #3b6eff;
+        }
+
+        .feature h3 {
+            color: #c0d4ff;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        .feature p {
+            color: #8aa0c4;
+            font-size: 0.9rem;
+        }
+
+        .optin-form {
+            background: #0d1424;
+            padding: 35px;
+            border-radius: 20px;
+            margin-top: 25px;
+            border: 1px solid #253654;
+        }
+
+        .optin-form h3 {
+            color: #c0d4ff;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #b0c4f0;
+            font-size: 0.9rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            background: #0a0f1c;
+            border: 1px solid #2a3a5c;
+            border-radius: 12px;
+            font-size: 15px;
+            color: white;
+            transition: all 0.2s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #3b6eff;
+            box-shadow: 0 0 0 2px rgba(59, 110, 255, 0.2);
+        }
+
+        .form-group input::placeholder {
+            color: #4a5a7a;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin: 25px 0;
+            background: #0a0f1c;
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid #253654;
+        }
+
+        .checkbox-group input {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            accent-color: #3b6eff;
+            /* CRITICAL: NOT pre-checked - no checked attribute */
+        }
+
+        .checkbox-group label {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #a0b5dc;
+        }
+
+        .checkbox-group label strong {
+            color: #c0d4ff;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #2b4fdd 0%, #1a3a9e 100%);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #3b5fef 0%, #2a4abe 100%);
+            transform: scale(1.01);
+            box-shadow: 0 5px 15px rgba(43, 79, 221, 0.3);
+        }
+
+        .footer {
+            background: #070c18;
+            color: #5a6e96;
+            padding: 25px 40px;
+            text-align: center;
+            font-size: 12px;
+            border-top: 1px solid #1a2538;
+        }
+
+        .disclaimer {
+            font-size: 11px;
+            color: #5a6e96;
+            margin-top: 20px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .disclaimer a {
+            color: #6b8eff;
+            text-decoration: none;
+        }
+
+        .disclaimer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            .header h1 { font-size: 1.8rem; }
+            .content { padding: 25px 20px; }
+            .features { flex-direction: column; }
+            .optin-form { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>SHIELDGUARDTECH</h1>
+            <div class="tagline">Enterprise Security & Transactional Notification Platform</div>
+        </div>
+
+        <div class="content">
+            <div class="about-section">
+                <h2>About ShieldGuardTech</h2>
+                <p>ShieldGuardTech delivers enterprise-grade security alerts and critical transaction notifications to businesses and their customers. Our platform processes millions of real-time messages daily, ensuring that important security events reach users instantly.</p>
+                <p>Headquartered in Wilmington, DE, ShieldGuardTech is trusted by over 1,200 organizations worldwide for reliable, compliant, and secure communication solutions.</p>
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <h3>🔐 Real-Time Security Alerts</h3>
+                    <p>Instant notification of suspicious activity and account events</p>
+                </div>
+                <div class="feature">
+                    <h3>📱 SMS & Voice Notifications</h3>
+                    <p>Multi-channel delivery for critical updates</p>
+                </div>
+                <div class="feature">
+                    <h3>⚡ Enterprise SLA</h3>
+                    <p>99.95% uptime with 24/7 support</p>
+                </div>
+            </div>
+
+            <!-- OPT-IN FORM - CRITICAL FOR BREVO APPROVAL -->
+            <div class="optin-form">
+                <h3>Subscribe to Security Alerts</h3>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label>Full Legal Name</label>
+                        <input type="text" name="name" placeholder="John A. Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Number (SMS)</label>
+                        <input type="tel" name="phone" placeholder="+1 (555) 123-4567" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address (Optional)</label>
+                        <input type="email" name="email" placeholder="john.smith@example.com">
+                    </div>
+
+                    <!-- CRITICAL: CHECKBOX STARTS BLANK - NO "checked" ATTRIBUTE -->
+                    <div class="checkbox-group">
+                        <input type="checkbox" name="optin_consent" value="yes" id="consent_checkbox">
+                        <label for="consent_checkbox">
+                            I expressly consent to receive <strong>transactional security alerts</strong> from <strong>ShieldGuardTech</strong> via SMS text messages. 
+                            I understand that message frequency varies based on account activity. 
+                            Standard message and data rates may apply. 
+                            I can reply <strong>STOP</strong> to cancel at any time or <strong>HELP</strong> for assistance.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Subscribe to Shield Alerts →</button>
+                </form>
+                <div class="disclaimer">
+                    By subscribing, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. 
+                    This service is for transactional and security notifications only. No marketing messages will be sent.
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 ShieldGuardTech, Inc. | 1230 N Market Street, Suite 500, Wilmington, DE 19801</p>
+            <p>Enterprise Security Notification Platform | CAGE Code: 8VYH3 | DUNS: 11-722-8814</p>
+        </div>
+    </div>
+</body>
+</html>
